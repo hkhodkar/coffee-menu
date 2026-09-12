@@ -1,6 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DrinkCard } from "./drink-card";
 import { MENUITEMS } from "@/assets/DATA";
+import { ThemeToggle } from "./theme-toggle";
 
 const CATEGORIES = [
   { value: "hot-drinks", label: "Hot Drinks" },
@@ -14,7 +15,10 @@ export function MenuTabs() {
 
   return (
     <Tabs defaultValue="hot-drinks" className="w-full">
-      <div className="sticky top-0 z-10 -mx-6 bg-surface/95 px-6 py-3 backdrop-blur-sm">
+      <div className="sticky top-0 z-10 -mx-6 flex items-center gap-3 bg-surface/95 px-6 py-3 backdrop-blur-sm">
+        {/* balances the toggle on the right so the tabs stay centred */}
+        <div className="size-9 shrink-0" aria-hidden />
+
         <TabsList className="mx-auto flex w-fit max-w-full flex-wrap justify-center gap-2 rounded-full bg-brand-soft p-1">
           {CATEGORIES.map((category) => (
             <TabsTrigger
@@ -27,6 +31,7 @@ export function MenuTabs() {
           ))}
         </TabsList>
 
+        <ThemeToggle />
       </div>
 
       {CATEGORIES.map((category) => {

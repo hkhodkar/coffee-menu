@@ -5,6 +5,16 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Oak & Ember</title>
+
+    <!-- Apply the saved theme before first paint so the page never flashes.
+         Dark is the default until the visitor picks otherwise. -->
+    <script>
+      (function () {
+        if (localStorage.getItem("theme") !== "light") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
