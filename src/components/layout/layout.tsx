@@ -4,7 +4,7 @@ import { Main } from "./main";
 
 export function Layout() {
   return (
-    <div className="min-h-screen bg-[#F6F1E8]">
+    <div className="min-h-screen bg-canvas">
       <Header />
       <Main />
       <Footer />
