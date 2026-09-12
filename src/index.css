@@ -5,6 +5,69 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Oak & Ember brand palette.
+   Raw values live in :root / .dark below; @theme inline maps them to
+   utilities (bg-brand, text-ink, border-line...) that follow the theme. */
+@theme inline {
+    --color-canvas: var(--canvas);
+    --color-surface: var(--surface);
+    --color-line: var(--line);
+
+    --color-brand: var(--brand);
+    --color-brand-soft: var(--brand-soft);
+    --color-brand-accent: var(--brand-accent);
+    --color-brand-contrast: var(--brand-contrast);
+
+    --color-ink: var(--ink);
+    --color-ink-soft: var(--ink-soft);
+    --color-ink-muted: var(--ink-muted);
+
+    --color-available: var(--available);
+    --color-available-soft: var(--available-soft);
+    --color-soldout: var(--soldout);
+    --color-soldout-soft: var(--soldout-soft);
+}
+
+:root {
+    --canvas: #F6F1E8;          /* page background */
+    --surface: #FFFDF9;         /* cards and panels */
+    --line: #E7DED3;            /* borders and dividers */
+
+    --brand: #6F4E37;           /* espresso brown — primary */
+    --brand-soft: #EFE5D8;      /* tinted brand background */
+    --brand-accent: #C58B57;    /* caramel — eyebrow text */
+    --brand-contrast: #FFFDF9;  /* text drawn on top of --brand */
+
+    --ink: #2B2118;             /* headings */
+    --ink-soft: #7C6F64;        /* body text */
+    --ink-muted: #A3927F;       /* labels and counts */
+
+    --available: #3F7D58;
+    --available-soft: #EDF6EF;
+    --soldout: #A74A4A;
+    --soldout-soft: #F8EAEA;
+}
+
+.dark {
+    --canvas: #16110D;
+    --surface: #201913;
+    --line: #33291F;
+
+    --brand: #D4A574;           /* lifted so it reads against a dark ground */
+    --brand-soft: #2C2219;
+    --brand-accent: #E0B080;
+    --brand-contrast: #1A130E;  /* dark text on the now-light brand */
+
+    --ink: #F5EDE3;
+    --ink-soft: #C2B3A3;
+    --ink-muted: #8E8073;
+
+    --available: #6FCF97;
+    --available-soft: #1B2B22;
+    --soldout: #E88C8C;
+    --soldout-soft: #2E1D1D;
+}
+
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: 'Inter Variable', sans-serif;
