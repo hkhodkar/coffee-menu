@@ -31,13 +31,13 @@ export function DrinkCard({
         />
 
         {isPopular && isAvailable && (
-          <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2 py-0.5 text-[11px] font-medium text-brand-contrast backdrop-blur-sm">
+          <span className="absolute left-1.5 top-1.5 rounded-full bg-brand/90 px-1.5 py-0.5 text-[10px] font-medium text-brand-contrast backdrop-blur-sm sm:left-2 sm:top-2 sm:px-2 sm:text-[11px]">
             Popular
           </span>
         )}
 
         <span
-          className={`absolute right-2 top-2 rounded-full px-2 py-0.5 text-[11px] font-medium backdrop-blur-sm ${
+          className={`absolute right-1.5 top-1.5 rounded-full px-1.5 py-0.5 text-[10px] font-medium backdrop-blur-sm sm:right-2 sm:top-2 sm:px-2 sm:text-[11px] ${
             isAvailable
               ? "bg-available-soft/90 text-available"
               : "bg-soldout-soft/90 text-soldout"
@@ -47,9 +47,9 @@ export function DrinkCard({
         </span>
       </div>
 
-      <CardContent className="flex flex-1 flex-col p-3">
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="text-sm font-semibold leading-snug text-ink transition-colors group-hover:text-brand">
+      <CardContent className="flex flex-1 flex-col p-2.5 sm:p-3">
+        <div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-1">
+          <h3 className="min-w-0 flex-1 text-sm font-semibold leading-snug text-ink transition-colors group-hover:text-brand">
             {name}
           </h3>
 

@@ -191,3 +191,10 @@
     @apply font-sans;
     }
 }
+/* Horizontally scrollable tab strip on mobile, without the scrollbar. */
+@utility no-scrollbar {
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
