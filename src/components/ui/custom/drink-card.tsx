@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import type { menuItem } from "@/model/menu-item.model";
+import { CardBadge } from "./badge";
 
 export type DrinkCardProps = Pick<
   menuItem,
@@ -16,7 +17,7 @@ export function DrinkCard({
 }: DrinkCardProps) {
   return (
     <Card
-      className={`group flex w-full flex-col overflow-hidden border-line bg-surface p-0 shadow-sm transition-all duration-300 ${
+      className={`group flex w-full flex-col overflow-hidden rounded-2xl bg-surface shadow-sm ring-1 ring-line transition-all duration-300 [--card-spacing:0px] ${
         isAvailable
           ? "hover:-translate-y-1 hover:shadow-lg"
           : "grayscale opacity-60"
@@ -27,24 +28,24 @@ export function DrinkCard({
           src={image}
           alt={name}
           loading="lazy"
-          className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
         {isPopular && isAvailable && (
-          <span className="absolute left-1.5 top-1.5 rounded-full bg-brand/90 px-1.5 py-0.5 text-[10px] font-medium text-brand-contrast backdrop-blur-sm sm:left-2 sm:top-2 sm:px-2 sm:text-[11px]">
+          <CardBadge
+            variant="popular"
+            className="absolute left-1.5 top-1.5 sm:left-2 sm:top-2"
+          >
             Popular
-          </span>
+          </CardBadge>
         )}
 
-        <span
-          className={`absolute right-1.5 top-1.5 rounded-full px-1.5 py-0.5 text-[10px] font-medium backdrop-blur-sm sm:right-2 sm:top-2 sm:px-2 sm:text-[11px] ${
-            isAvailable
-              ? "bg-available-soft/90 text-available"
-              : "bg-soldout-soft/90 text-soldout"
-          }`}
+        <CardBadge
+          variant={isAvailable ? "available" : "soldout"}
+          className="absolute right-1.5 top-1.5 sm:right-2 sm:top-2"
         >
           {isAvailable ? "Available" : "Sold Out"}
-        </span>
+        </CardBadge>
       </div>
 
       <CardContent className="flex flex-1 flex-col p-2.5 sm:p-3">
@@ -53,9 +54,7 @@ export function DrinkCard({
             {name}
           </h3>
 
-          <span className="shrink-0 rounded-full bg-brand-soft px-2 py-0.5 text-xs font-semibold text-brand">
-            {price} AED
-          </span>
+          <CardBadge variant="price">{price} AED</CardBadge>
         </div>
 
         <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-ink-soft">
